@@ -4,6 +4,8 @@
 
 ---
 
+https://raw.githubusercontent.com/FawadAli1896/ForanAPI/refs/heads/main/public/icon.ico
+
 ## 🚀 Features
 
 - **⚡ Full HTTP Method Support**: Execute `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, and `OPTIONS` requests natively without CORS restrictions.
