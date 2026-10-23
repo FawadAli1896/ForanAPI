@@ -4,7 +4,7 @@
 
 ---
 
-https://raw.githubusercontent.com/FawadAli1896/ForanAPI/refs/heads/main/public/icon.ico
+<img width="156" height="156" alt="image" src="https://github.com/user-attachments/assets/62c0f958-1208-4d9a-8361-7cba9ecefda3" />
 
 ## 🚀 Features
 
