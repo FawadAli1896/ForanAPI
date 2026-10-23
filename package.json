@@ -1,0 +1,80 @@
+{
+  "name": "foranapi",
+  "version": "1.0.0",
+  "description": "Lightweight, fast desktop API testing tool inspired by Bruno",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "concurrently -k -n \"electron-compile,vite,electron\" -c \"blue,green,magenta\" \"tsc -p tsconfig.electron.json --watch\" \"vite\" \"wait-on tcp:5173 && electron .\"",
+    "dev:web": "vite",
+    "build:electron": "tsc -p tsconfig.electron.json",
+    "build:vite": "vite build",
+    "build": "npm run build:electron && npm run build:vite",
+    "dist": "npm run build && npx electron-builder --win nsis",
+    "dist:portable": "npm run build && npx electron-builder --win portable",
+    "preview": "vite preview",
+    "server": "node server/index.js",
+    "start": "electron ."
+  },
+  "build": {
+    "appId": "com.foranapi.desktop",
+    "productName": "ForanAPI",
+    "copyright": "Copyright © 2026 ForanAPI",
+    "directories": {
+      "output": "dist-release"
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "http://localhost:3001/releases/"
+      }
+    ],
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "public/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "public/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ForanAPI",
+      "artifactName": "ForanAPI-Setup-${version}.${ext}"
+    }
+  },
+  "keywords": [
+    "api-client",
+    "electron",
+    "react",
+    "bruno",
+    "rest-client",
+    "developer-tools"
+  ],
+  "author": "ForanAPI Team",
+  "license": "MIT",
+  "dependencies": {
+    "electron-updater": "^6.8.9",
+    "lucide-react": "^1.16.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^35.0.0",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.1",
+    "wait-on": "^8.0.3"
+  }
+}

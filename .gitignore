@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-release/
+build/
+
+# Windows installers and binaries
+*.exe
+*.blockmap
+
+# Local database files
+server/data/*.db
+server/data/*.db-shm
+server/data/*.db-wal
+
+# Environment secrets
+.env
+.env.*
+!.env.example
